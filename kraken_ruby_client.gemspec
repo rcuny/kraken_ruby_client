@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.name                  = 'kraken_ruby_client'
   s.version               = KrakenRubyClient::VERSION
   s.date                  = '2016-09-25'
-  s.required_ruby_version = '>= 2.6'
+  s.required_ruby_version = '>= 2.4'
   s.homepage              = 'https://rubygems.org/gems/kraken_ruby_client'
   s.author                = 'Jon Atack'
   s.email                 = 'jon@atack.com'

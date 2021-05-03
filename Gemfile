@@ -22,30 +22,33 @@
 #    The author may be contacted by email: jon@atack.com
 #++
 source 'https://rubygems.org'
-gemspec
+# gemspec
 
 git_source(:github) { |repo_name| "https://github.com/#{repo_name}.git" }
 
 # Curl Ruby for HTTP - the only runtime dependency for this gem.
 gem 'curb', github: 'taf2/curb'
 
-# Ruby Make
-gem 'rake'
+group :development, :test do
+  gem 'bundler', '~> 2.0'
+  gem 'rake', '~> 12.3'
+end
 
-# Testing
-gem 'minitest'
-gem 'minitest-reporters'
+group :test do
+  gem 'minitest', '~> 5.11'
+  gem 'minitest-reporters'
+  
+  # Minitest-focus allows you to focus on a single test without CLI arguments.
+  # The +focus+ class method enables running the next defined test only.
+  # Read more: https://github.com/seattlerb/minitest-focus
+  gem 'minitest-focus'
+  
+  # Pretty Minitest Color Reporter.
+  # More info: https://github.com/danielpclark/color_pound_spec_reporter
+  gem 'color_pound_spec_reporter'
 
-# Minitest-focus allows you to focus on a single test without CLI arguments.
-# The +focus+ class method enables running the next defined test only.
-# Read more: https://github.com/seattlerb/minitest-focus
-gem 'minitest-focus'
-
-# Pretty Minitest Color Reporter.
-# More info: https://github.com/danielpclark/color_pound_spec_reporter
-gem 'color_pound_spec_reporter'
-
-# Linter
-gem 'rubocop'
-gem 'rubocop-performance'
-gem 'rubocop-minitest'
+  # Linter
+  gem 'rubocop'
+  gem 'rubocop-performance'
+  gem 'rubocop-minitest'
+end
